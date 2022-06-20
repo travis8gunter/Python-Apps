@@ -1,0 +1,32 @@
+transaction = {
+    "source_address": "1234abcd",
+    "destinination_address": "5678efgk",
+    "amount":5000.00
+    }
+print("Transation Report")
+print("-------------------------------------------")
+print(transaction["amount"])
+print("Transaction success From ",transaction["source_address"])
+print("Transaction success To ",transaction["destinination_address"])
+print("END OF REPORT")
+print("-------------------------------------------")
+# Denominations in Cardano
+note = '''Api Shows Denominations in Lovelaces in ADA
+https://docs.cardano.org/cardano/monetary-policy/'''
+
+value = ''' ****1 ADA = 1,000,000 Lovelaces****,
+1 ADA has 6 decimal places,
+1.000000 = 1 ADA,
+0.000001 = 1 Lovelace'''
+
+represtentint_wallet = ''' Key name: id -- Data Type:String,
+Key name: address -- Data Type:String,
+Key name: balance -- Data Type:Decimal/Float'''
+
+print("OTHER NOTES")
+print("-------------------------------------------")
+print(note)
+print("-------------------------------------------")
+print(value)
+print("-------------------------------------------")
+print(represtentint_wallet)
