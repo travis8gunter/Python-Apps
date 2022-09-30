@@ -16,3 +16,4 @@ area = int(length * width)
 total = inches * area * .623
 #OutPut is the printing statmetn of changing the data to float and giving the number to the user
 print("You will need ",float(total), "gallon capacity to catch the most rain at one time")
+#
