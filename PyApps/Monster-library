@@ -1,0 +1,53 @@
+def create_monster_cast():
+    return {}
+
+def add_cast_member(monsters,character,cast_member):
+    monsters[character] = cast_member
+    return monsters
+
+def get_cast_member(monsters,character):
+    return monsters[character]
+
+def get_cast_size(monsters):
+    return len(monsters)
+
+def change_cast_member(monsters,character,cast_member):
+    monsters[character] = cast_member
+    return monsters
+
+def has_character(monsters,character):
+    if character in monsters:
+        return True
+    else:
+        return False
+    
+def has_cast_member(monsters,cast_member):
+    if cast_member in monsters.values():
+        return True
+    else:
+        return False
+    
+def get_longest_cast_member(monsters):
+    longest = ''
+    for i in monsters.values():
+        if len(i) > len(longest):
+            longest = i
+    return longest
+
+
+def get_longest_character(monsters):
+    longest_key = ''
+    for i in monsters.keys():
+        if len(i) > len(longest_key):
+            longest_key = i
+    return longest_key
+
+def get_character_of_longest_cast_member(monsters):
+    longest_cast_member = ''
+    character_with_longest_cast_member = ''
+    for character, cast_member in monsters.items():
+        if len(cast_member) > len(longest_cast_member):
+            longest_cast_member = cast_member
+            character_with_longest_cast_member = character
+    return character_with_longest_cast_member
+            
