@@ -1,0 +1,31 @@
+def create_orb(emotion,location,data):
+    my_dict = {"emotion":emotion,
+               "location":location,
+               "data":data}
+    return my_dict
+
+
+def orb_get_emotion(orb):
+    if "emotion" in orb:
+        return orb["emotion"]
+    else:
+        return None
+    
+def change_orb_emotion(orb,new_emotion):
+        orb["emotion"] = new_emotion
+        return orb
+    
+def orb_get_location(orb):
+    if "location" in orb:
+        return orb["location"]
+    else:
+        return None
+    
+def move_orb(orb,new_location):
+    orb["location"] = new_location
+    return orb
+
+def orb_get_data(orb):
+    if "data" in orb:
+        return orb["data"]
+
