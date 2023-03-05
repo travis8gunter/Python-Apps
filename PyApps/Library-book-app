@@ -1,0 +1,102 @@
+import sys
+
+
+def createIndex():
+    index = {}
+    return index
+
+def recordBook(index, isbn, title):
+    index[isbn] = title
+    
+    
+def findBook(index,isbn):
+    if isbn in index:
+        return index[isbn]
+    else:
+        return ''
+
+def listBooks(index):
+    return [f"{i+1}) {isbn}: {title}" for i, (isbn, title) in enumerate(index.items())]
+
+
+def formatMenu():
+    menu = ['What would you like to do?', '[r] Record a Book', '[f] Find a Book', '[l] List all Books', '[q] Quit' ]
+    return menu
+
+def formatMenuPrompt():
+    prompt = 'Enter an option: '
+    return prompt
+
+def getUserChoice(prompt):
+    userInput = input(prompt).strip()
+    while userInput == '':
+        userInput = input(prompt).strip()
+    return userInput.strip()
+
+
+
+def getISBN():
+    while True:
+        choice = getUserChoice("Enter a ISBN: ")
+        choice = choice.strip()
+        if choice:
+            return choice
+
+def getTitle():
+    while True:
+        get_title = getUserChoice("Enter a title: ")
+        get_title = get_title.strip()
+        if get_title:
+            return get_title
+        
+def recordBookAction(index):
+    isbn = getISBN()
+    title = getTitle()
+    index[isbn] = title
+    print(f"Book '{title}' with ISBN '{isbn}' was recorded.")
+    
+def findBookAction(index):
+    isbn = getISBN()
+    
+    if isbn in index:
+        title = index[isbn]
+        print(f"The title of book with ISBN '{isbn}' is '{title}'.")
+    else:
+        print(f"Book with ISBN '{isbn}' was not found")
+        
+def listBooksAction(index):
+    if not index:
+        print("There are no books")
+    else:
+        print("ISBN\t\tTitle")
+        
+        for isbn, title in index.items():
+            print(f"{isbn}\t{title}")
+            
+def quitAction(index):
+    print("This program is ending! Thanks for playing")
+    sys.exit(0)
+    
+    
+def applyAction(index,choice):
+    if choice == "r":
+        recordBookAction(index)
+    elif choice == "f":
+        findBookAction(index)
+    elif choice == "l":
+        listBooksAction(index)
+    elif choice == "q":
+        quitAction(index)
+    else:
+        print(f"Invalid choice: '{choice}'. Please try again.")
+        
+        
+def main():
+    index = createIndex()
+    print(formatMenu())
+    choice = 'a'
+    while choice != 'q':
+        choice = getUserChoice(formatMenuPrompt())
+        applyAction(index,choice)
+if __name__ =='__main__':
+    main()
