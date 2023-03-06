@@ -1,0 +1,40 @@
+class Car:
+    def __init__(self):
+        self.speed = 0.0
+        
+    def getSpeed(self):
+        return self.speed
+    
+    def setSpeed(self,speed):
+        if 0.0 <= speed <= 80:
+            self.speed = float(speed)
+            return True
+        else:
+            return False
+        
+    def accelerate(self,delta_speed):
+        if delta_speed > 0.0 and self.speed < 80.0:
+            new = self.speed + delta_speed
+            if new > 80.0:
+                self.speed = 80.0
+                return True
+            else:
+                self.speed = new
+                return True
+        else:
+            return False
+        
+        
+    def brake(self,delta_speed):
+        if delta_speed > 0.0 and self.speed > 0:
+            new = self.speed - delta_speed
+            if new <= 0:
+                self.speed = 0.0
+                return True
+            else:
+                self.speed = new
+                return True
+        else:
+            return False
+            
+            
