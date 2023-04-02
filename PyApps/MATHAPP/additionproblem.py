@@ -1,40 +1,12 @@
-class MathProblem:
-    def __init__(self, lhs, rhs, operator=''):
-        self.lhs = lhs
-        self.rhs = rhs
-        self.operator = operator
-        
-    def getLHS(self):
-        return self.lhs
+from mathproblem import MathProblem
+
+class AdditionProblem(MathProblem):
     
-    def getRHS(self):
-        return self.rhs
-    
-    def getOperator(self):
-        return self.operator
-    
-    def setLHS(self, value):
-        if self.lhs  != value:
-            self.lhs = value
-            return True
-        else:
-            return False
-    
-    def setRHS(self, value):
-        if self.rhs != value:
-            self.rhs = value
-            return True
-        else:
-            return False
-    
-    def setOperator(self, value):
-        if self.operator != value:
-            self.operator = value
-            return True
-        else:
-            return False
-        
+    def __init__(self, lhs, rhs):
+        super().__init__(lhs, rhs)
+        self.setOperator("+")
     def getString(self):
-        return ""
-    def checkAnswer(self,ans):
-        return False
+        return f"{self.lhs} + {self.rhs}"
+    
+    def checkAnswer(self, ans):
+        return ans == self.lhs + self.rhs
